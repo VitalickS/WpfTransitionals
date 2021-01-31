@@ -5,4 +5,19 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|netcoreapp3.0|AnyCPU'">
+    <DocumentationFile>C:\Users\VITALY\source\repos\WpfTransitionals\WPF\Framework\Transitionals\Transitionals.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net35|AnyCPU'">
+    <DocumentationFile>C:\Users\VITALY\source\repos\WpfTransitionals\WPF\Framework\Transitionals\Transitionals.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Transitions\Images\star.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Transitions\Images\star.png" />
+  </ItemGroup>
+
 </Project>

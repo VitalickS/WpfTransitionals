@@ -1,0 +1,943 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Transitionals</name>
+    </assembly>
+    <members>
+        <member name="T:Transitionals.Controls.Slideshow">
+            <summary>
+            Interaction logic for Slideshow.xaml
+            </summary>
+            <summary>
+            Slideshow
+            </summary>
+        </member>
+        <member name="M:Transitionals.Controls.Slideshow.#cctor">
+            <summary>
+            Initializes the static implementation of <see cref="T:Transitionals.Controls.Slideshow"/>.
+            </summary>
+        </member>
+        <member name="M:Transitionals.Controls.Slideshow.#ctor">
+            <summary>
+            Initializes a new <see cref="T:Transitionals.Controls.Slideshow"/> instance
+            </summary>
+        </member>
+        <member name="M:Transitionals.Controls.Slideshow.OnAutoAdvanceChanged(System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Occurs when the value of the <see cref="P:Transitionals.Controls.Slideshow.AutoAdvance"/> property has changed.
+            </summary>
+            <param name="e">
+            A <see cref="T:System.Windows.DependencyPropertyChangedEventArgs"/> containing event information.
+            </param>
+        </member>
+        <member name="M:Transitionals.Controls.Slideshow.OnAutoAdvanceDurationChanged(System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Occurs when the value of the <see cref="P:Transitionals.Controls.Slideshow.AutoAdvanceDuration"/> property has changed.
+            </summary>
+            <param name="e">
+            A <see cref="T:System.Windows.DependencyPropertyChangedEventArgs"/> containing event information.
+            </param>
+        </member>
+        <member name="M:Transitionals.Controls.Slideshow.OnIsContinuousChanged(System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Occurs when the value of the <see cref="P:Transitionals.Controls.Slideshow.IsContinuous"/> property has changed.
+            </summary>
+            <param name="e">
+            A <see cref="T:System.Windows.DependencyPropertyChangedEventArgs"/> containing event information.
+            </param>
+        </member>
+        <member name="M:Transitionals.Controls.Slideshow.OnShuffleChanged(System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Occurs when the value of the <see cref="P:Transitionals.Controls.Slideshow.Shuffle"/> property has changed.
+            </summary>
+            <param name="e">
+            A <see cref="T:System.Windows.DependencyPropertyChangedEventArgs"/> containing event information.
+            </param>
+        </member>
+        <member name="M:Transitionals.Controls.Slideshow.OnTransitionChanged(System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Occurs when the value of the <see cref="P:Transitionals.Controls.Slideshow.Transition"/> property has changed.
+            </summary>
+            <param name="e">
+            A <see cref="T:System.Windows.DependencyPropertyChangedEventArgs"/> containing event information.
+            </param>
+        </member>
+        <member name="M:Transitionals.Controls.Slideshow.OnTransitionSelectorChanged(System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Occurs when the value of the <see cref="P:Transitionals.Controls.Slideshow.TransitionSelector"/> property has changed.
+            </summary>
+            <param name="e">
+            A <see cref="T:System.Windows.DependencyPropertyChangedEventArgs"/> containing event information.
+            </param>
+        </member>
+        <member name="M:Transitionals.Controls.Slideshow.TransitionNext">
+            <summary>
+            Causes the <see cref="T:Transitionals.Controls.Slideshow"/> to transition to the next item.
+            </summary>
+            <remarks>
+            When determining the item to transition to, this method takes into account the 
+            values of the <see cref="P:Transitionals.Controls.Slideshow.Shuffle"/> and <see cref="P:Transitionals.Controls.Slideshow.IsContinuous"/> properties. No 
+            exception is thrown if there is no item to transition next.
+            </remarks>
+        </member>
+        <member name="M:Transitionals.Controls.Slideshow.TransitionPrevious">
+            <summary>
+            Causes the <see cref="T:Transitionals.Controls.Slideshow"/> to transition to the previous item.
+            </summary>
+            <remarks>
+            This item always transitions to the logical previous item in the list, 
+            regardless of the value of the <see cref="P:Transitionals.Controls.Slideshow.Shuffle"/> property. However, 
+            this method will wrap around from the first logical item to the last logical 
+            item if the <see cref="P:Transitionals.Controls.Slideshow.IsContinuous"/> property is set to <c>true</c> (default).
+            </remarks>
+        </member>
+        <member name="P:Transitionals.Controls.Slideshow.AutoAdvance">
+            <summary>
+            Gets or sets a value that indicates if <see cref="T:Transitionals.Controls.Slideshow"/> will automatically 
+            advance to the next item.
+            <see cref="T:Transitionals.Controls.Slideshow"/> advances to the next item.
+            </summary>
+            <value>
+            <c>true</c> if <see cref="T:Transitionals.Controls.Slideshow"/> will automatically advance to the next item; 
+            otherwise <c>false</c>.
+            </value>
+            <remarks>
+            The amount of time that <see cref="T:Transitionals.Controls.Slideshow"/> will wait before advancing to the 
+            next item can be specified using the <see cref="P:Transitionals.Controls.Slideshow.AutoAdvanceDuration"/> property. 
+            This property defaults to <c>false</c>.
+            </remarks>
+        </member>
+        <member name="P:Transitionals.Controls.Slideshow.AutoAdvanceDuration">
+            <summary>
+            Gets or sets a <see cref="T:System.Windows.Duration"/> that indicates how much time must pass before 
+            <see cref="T:Transitionals.Controls.Slideshow"/> advances to the next item.
+            </summary>
+            <value>
+            A <see cref="T:System.Windows.Duration"/> that indicates how much time must pass.
+            </value>
+            <remarks>
+            This property defaults to 3 seconds and has no effect if <see cref="P:Transitionals.Controls.Slideshow.AutoAdvance"/> 
+            is set to <c>false</c>.
+            </remarks>
+        </member>
+        <member name="P:Transitionals.Controls.Slideshow.IsContinuous">
+            <summary>
+            Gets or sets a value that indicates if <see cref="T:Transitionals.Controls.Slideshow"/> will treat the 
+            items in the list as a continuous loop. 
+            </summary>
+            <value>
+            <c>true</c> if <see cref="T:Transitionals.Controls.Slideshow"/> if <see cref="T:Transitionals.Controls.Slideshow"/> will treat the 
+            items in the list as a continuous loop; otherwise <c>false</c>. The default 
+            is <c>true</c>.
+            </value>
+            <remarks>
+            When this property is set to <c>true</c> (the default) and the last item in the 
+            list is displayed, <see cref="T:Transitionals.Controls.Slideshow"/> will transition to the first item 
+            in the list. Similarly, if the first item is displayed and a request is made 
+            to display the previous item, <see cref="T:Transitionals.Controls.Slideshow"/> will automatically 
+            transition to the last item in the list.
+            </remarks>
+        </member>
+        <member name="P:Transitionals.Controls.Slideshow.Shuffle">
+            <summary>
+            Gets or sets a value that indicates if <see cref="T:Transitionals.Controls.Slideshow"/> will transition 
+            randomly between items in the list.
+            </summary>
+            <value>
+            <c>true</c> if <see cref="T:Transitionals.Controls.Slideshow"/> will transition randomly between items in 
+            the list; otherwise <c>false</c>. The default is <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Transitionals.Controls.Slideshow.Transition">
+            <summary>
+            Gets or sets a single <see cref="P:Transitionals.Controls.Slideshow.Transition"/> that will be used to switch between content.
+            </summary>
+            <value>
+            A single <see cref="P:Transitionals.Controls.Slideshow.Transition"/> that will be used to switch between content.
+            </value>
+            <remarks>
+            To use more than one transition, see <see cref="P:Transitionals.Controls.Slideshow.TransitionSelector"/>.
+            </remarks>
+        </member>
+        <member name="P:Transitionals.Controls.Slideshow.TransitionSelector">
+            <summary>
+            Gets or sets a class instance that will provide transitions to the <see cref="T:Transitionals.Controls.Slideshow"/>.
+            </summary>
+            <value>
+            A <see cref="P:Transitionals.Controls.Slideshow.TransitionSelector"/> instance that will provide transitions.
+            </value>
+            <remarks>
+            To use only a single transition, see the <see cref="P:Transitionals.Controls.Slideshow.Transition"/> property.
+            </remarks>
+        </member>
+        <member name="M:Transitionals.Controls.Slideshow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Transitionals.Controls.SlideshowPanel">
+            <summary>
+            A panel that can display only a single item. If the panel is associated with a selector, 
+            only the selected item is displayed. When the active or selected item is replaced, a 
+            transition occurs from the old item to the new one.
+            </summary>
+        </member>
+        <member name="M:Transitionals.Controls.SlideshowPanel.#ctor">
+            <summary>
+            Initializes a new <see cref="!:SingleItemPanel"/>.
+            </summary>
+        </member>
+        <member name="M:Transitionals.Controls.SlideshowPanel.HandleSelectorChange">
+            <summary>
+            Handles the selector changing.
+            </summary>
+        </member>
+        <member name="M:Transitionals.Controls.SlideshowPanel.EnsureTransitionPanel">
+            <summary>
+            Ensures that the transition panel has been created and added to the controls
+            child collection.
+            </summary>
+        </member>
+        <member name="M:Transitionals.Controls.SlideshowPanel.Initialize">
+            <summary>
+            Initializes the control and child controls.
+            </summary>
+        </member>
+        <member name="T:Transitionals.Controls.TransitionElement">
+            <summary>
+            An element that can display exactly one piece of visual content. When the content is changed, a 
+            transition is used to switch between the old and the new.
+            </summary>
+        </member>
+        <member name="M:Transitionals.Controls.TransitionElement.#cctor">
+            <summary>
+            Initializes the static version of <see cref="T:Transitionals.Controls.TransitionElement"/>.
+            </summary>
+        </member>
+        <member name="M:Transitionals.Controls.TransitionElement.#ctor">
+            <summary>
+            Initializes the <see cref="T:Transitionals.Controls.TransitionElement"/> instance.
+            </summary>
+        </member>
+        <member name="F:Transitionals.Controls.TransitionElement.TransitionBeginningEvent">
+            <summary>
+            Identifies the <see cref="E:Transitionals.Controls.TransitionElement.TransitionBeginning"/> routed event.
+            </summary>
+        </member>
+        <member name="E:Transitionals.Controls.TransitionElement.TransitionBeginning">
+            <summary>
+            Occurs when the curent transition is starting.
+            </summary>
+        </member>
+        <member name="M:Transitionals.Controls.TransitionElement.OnTransitionBeginning(Transitionals.Controls.TransitionEventArgs)">
+            <summary>
+            Raises the <see cref="E:Transitionals.Controls.TransitionElement.TransitionBeginning"/> event.
+            </summary>
+            <param name="e">
+            A <see cref="T:Transitionals.Controls.TransitionEventArgs"/> that contains the event data.
+            </param>
+        </member>
+        <member name="F:Transitionals.Controls.TransitionElement.TransitionEndedEvent">
+            <summary>
+            Identifies the <see cref="E:Transitionals.Controls.TransitionElement.TransitionEnded"/> routed event.
+            </summary>
+        </member>
+        <member name="E:Transitionals.Controls.TransitionElement.TransitionEnded">
+            <summary>
+            Occurs when the current transition has completed.
+            </summary>
+        </member>
+        <member name="M:Transitionals.Controls.TransitionElement.OnTransitionEnded(Transitionals.Controls.TransitionEventArgs)">
+            <summary>
+            Raises the <see cref="E:Transitionals.Controls.TransitionElement.TransitionEnded"/> event.
+            </summary>
+            <param name="e">
+            A <see cref="T:Transitionals.Controls.TransitionEventArgs"/> containing the event data.
+            </param>
+        </member>
+        <member name="P:Transitionals.Controls.TransitionElement.Content">
+            <summary>
+            Gets or sets the content that is presented in the <see cref="T:Transitionals.Controls.TransitionElement"/>. This is a dependency property.
+            </summary>
+            <value>
+            The content that is presented in the <see cref="T:Transitionals.Controls.TransitionElement"/>.
+            </value>
+            <remarks>
+            If a transition is specified on the <see cref="P:Transitionals.Controls.TransitionElement.Transition"/> property, changing the 
+            value of this property will automatically cause the transition to begin.
+            </remarks>
+        </member>
+        <member name="F:Transitionals.Controls.TransitionElement.ContentProperty">
+            <summary>
+            Identifies the <see cref="P:Transitionals.Controls.TransitionElement.Content"/> dependency property.
+            </summary>
+        </member>
+        <member name="M:Transitionals.Controls.TransitionElement.OnContentChanged(System.Object,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Handles a change to the Content property.
+            </summary>
+        </member>
+        <member name="P:Transitionals.Controls.TransitionElement.ContentTemplate">
+            <summary>
+            Gets or sets the data template used to display the content of the <see cref="T:Transitionals.Controls.TransitionElement"/>. 
+            This is a dependency property.
+            </summary>
+            <remarks>
+            Set this property to a <see cref="T:System.Windows.DataTemplate"/> to specify the appearance of the <see cref="T:Transitionals.Controls.TransitionElement"/>. 
+            For more information on data templates, see 
+            <see href="http://msdn2.microsoft.com/en-us/library/ms742521.aspx">Data Templating Overview</see>.
+            </remarks>
+        </member>
+        <member name="F:Transitionals.Controls.TransitionElement.ContentTemplateProperty">
+            <summary>
+            Identifies the <see cref="P:Transitionals.Controls.TransitionElement.ContentTemplate"/> dependency property.
+            </summary>
+        </member>
+        <member name="P:Transitionals.Controls.TransitionElement.ContentTemplateSelector">
+            <summary>
+            Gets or sets a template selector that enables an application writer to provide custom template-selection logic. 
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="F:Transitionals.Controls.TransitionElement.ContentTemplateSelectorProperty">
+            <summary>
+            Identifies the <see cref="P:Transitionals.Controls.TransitionElement.ContentTemplateSelector"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:Transitionals.Controls.TransitionElement.TransitionsEnabledProperty">
+            <summary>
+            Identifies the <see cref="P:Transitionals.Controls.TransitionElement.TransitionsEnabled"/> dependency property.
+            </summary>
+        </member>
+        <member name="M:Transitionals.Controls.TransitionElement.OnTransitionsEnabledChanged(System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Occurs when the value of the <see cref="P:Transitionals.Controls.TransitionElement.TransitionsEnabled"/> property has changed.
+            </summary>
+            <param name="e">
+            A <see cref="T:System.Windows.DependencyPropertyChangedEventArgs"/> containing event information.
+            </param>
+        </member>
+        <member name="P:Transitionals.Controls.TransitionElement.TransitionsEnabled">
+            <summary>
+            Gets or sets a value that indicats if transitions are enabled. This is a dependency property.
+            </summary>
+            <value>
+            <c>true</c> if transitions are enabled; otherwise <c>false</c>. The default is <c>true</c>.
+            </value>
+        </member>
+        <member name="P:Transitionals.Controls.TransitionElement.IsTransitioning">
+            <summary>
+            Gets a value that indicates if the selected transition is currently running. This is a dependency property.
+            </summary>
+            <value>
+            <c>true</c> if the transition is running; otherwise <c>false</c>.
+            </value>
+        </member>
+        <member name="F:Transitionals.Controls.TransitionElement.IsTransitioningProperty">
+            <summary>
+            Identifies the <see cref="P:Transitionals.Controls.TransitionElement.IsTransitioning"/> dependency property.
+            </summary>
+        </member>
+        <member name="P:Transitionals.Controls.TransitionElement.Transition">
+            <summary>
+            Gets or sets the currently selected transition. This is a dependency property.
+            </summary>
+            <value>
+            The currently selected <see cref="P:Transitionals.Controls.TransitionElement.Transition"/>.
+            </value>
+            <remarks>
+            This transition will be used to animate between old content and new content 
+            whenever the value of the <see cref="P:Transitionals.Controls.TransitionElement.Content"/> property has changed.
+            </remarks>
+        </member>
+        <member name="F:Transitionals.Controls.TransitionElement.TransitionProperty">
+            <summary>
+            Identifies the <see cref="P:Transitionals.Controls.TransitionElement.Transition"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:Transitionals.Controls.TransitionElement.NullContentTemplateProperty">
+            <summary>
+            Identifies the <see cref="P:Transitionals.Controls.TransitionElement.NullContentTemplate"/> dependency property.
+            </summary>
+        </member>
+        <member name="P:Transitionals.Controls.TransitionElement.NullContentTemplate">
+            <summary>
+            Gets or sets the <see cref="T:System.Windows.DataTemplate"/> that should be displayed whenever the <see cref="P:Transitionals.Controls.TransitionElement.Content"/> property 
+            is set to <see langword="null"/>. This is a dependency property.
+            </summary>
+            <value>
+            A <see cref="T:System.Windows.DataTemplate"/> to display when no content is available; otherwise <see langword="null"/>.
+            </value>
+            <remarks>
+            The value of the <see cref="!:TransitionToNullIgnored"/> impacts whether this template is transitioned.
+            </remarks>
+        </member>
+        <member name="P:Transitionals.Controls.TransitionElement.TransitionSelector">
+            <summary>
+            Gets or sets a transition selector that enables an application writer to provide custom transition 
+            selection logic. This is a dependency property.
+            </summary>
+        </member>
+        <member name="F:Transitionals.Controls.TransitionElement.TransitionSelectorProperty">
+            <summary>
+            Identifies the <see cref="F:Transitionals.Controls.TransitionElement.TransitionSelectorProperty"/> dependency property.
+            </summary>
+        </member>
+        <member name="M:Transitionals.Controls.TransitionElement.BeginTransition">
+            <summary>
+            Starts the selected <see cref="P:Transitionals.Controls.TransitionElement.Transition"/>.
+            </summary>
+        </member>
+        <member name="T:Transitionals.Controls.TransitionEventArgs">
+            <summary>
+            Provides data for events involving a transition.
+            </summary>
+        </member>
+        <member name="M:Transitionals.Controls.TransitionEventArgs.#ctor(System.Windows.RoutedEvent,System.Object,Transitionals.Transition,System.Object,System.Object)">
+            <summary>
+            Initializes a new <see cref="T:Transitionals.Controls.TransitionEventArgs"/> instance.
+            </summary>
+            <param name="routedEvent">
+            The routed event this data represents.
+            </param>
+            <param name="source">
+            The source of the event.
+            </param>
+            <param name="transition">
+            The transition involved in the event.
+            </param>
+            <param name="oldContent">
+            The old content involved in the event.
+            </param>
+            <param name="newContent">
+            The new content involved in the event.
+            </param>
+        </member>
+        <member name="P:Transitionals.Controls.TransitionEventArgs.NewContent">
+            <summary>
+            Gets the new content involved in the event.
+            </summary>
+            <value>
+            The new content involved in the event.
+            </value>
+        </member>
+        <member name="P:Transitionals.Controls.TransitionEventArgs.OldContent">
+            <summary>
+            Gets the old content involved in the event.
+            </summary>
+            <value>
+            The old content involved in the event.
+            </value>
+        </member>
+        <member name="P:Transitionals.Controls.TransitionEventArgs.Transition">
+            <summary>
+            Gets the transition involved in the event.
+            </summary>
+            <value>
+            The transition involved in the event.
+            </value>
+        </member>
+        <member name="T:Transitionals.Controls.TransitionEventHandler">
+            <summary>
+            The signature for a handler of events involving transitions.
+            </summary>
+            <param name="sender">
+            The sender of the event.
+            </param>
+            <param name="e">
+            A <see cref="T:Transitionals.Controls.TransitionEventArgs"/> containing the event data.
+            </param>
+        </member>
+        <member name="M:Transitionals.InternalExtensions.ContainsType(System.Collections.IList,System.Type)">
+            <summary>
+            Determines if an item of the specified type exists within the collection.
+            </summary>
+            <param name="type">
+            The type to search for.
+            </param>
+            <returns>
+            <c>true</c> if an item of the specified type is found; otherwise <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Transitionals.InternalExtensions.IsCreatableAs``1(System.Type)">
+            <summary>
+            Indicates if the type can be created as a specified type.
+            </summary>
+            <typeparam name="T">
+            The type to be created as.
+            </typeparam>
+            <param name="type">
+            The type to try and create.
+            </param>
+            <returns>
+            <c>true</c> if the type can be created as <typeparamref name="T"/>.
+            </returns>
+        </member>
+        <member name="T:Transitionals.RandomTransitionSelector">
+            <summary>
+            A transition selector that randomly selects from a list of available transitions.
+            </summary>
+        </member>
+        <member name="F:Transitionals.RandomTransitionSelector.TransitionDurationProperty">
+            <summary>
+            Identifies the <see cref="F:Transitionals.RandomTransitionSelector.TransitionDurationProperty"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:Transitionals.RandomTransitionSelector.TransitionAssembliesProperty">
+            <summary>
+            Identifies the <see cref="F:Transitionals.RandomTransitionSelector.TransitionAssembliesProperty"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:Transitionals.RandomTransitionSelector.TransitionsProperty">
+            <summary>
+            Identifies the <see cref="F:Transitionals.RandomTransitionSelector.TransitionsProperty"/> dependency property.
+            </summary>
+        </member>
+        <member name="M:Transitionals.RandomTransitionSelector.ResetAssembliesResolved">
+            <summary>
+            Sets the assemblies list to unresolved.
+            </summary>
+        </member>
+        <member name="M:Transitionals.RandomTransitionSelector.ResolveAssemblies">
+            <summary>
+            Resolves assembly names to transitions.
+            </summary>
+        </member>
+        <member name="M:Transitionals.RandomTransitionSelector.SelectTransition(System.Object,System.Object)">
+            <summary>
+            Returns a random <see cref="T:Transitionals.Transition"/> from the list of <see cref="P:Transitionals.RandomTransitionSelector.Transitions"/>.
+            </summary>
+            <param name="oldContent">
+            The old content that is currently displayed.
+            </param>
+            <param name="newContent">
+            The new content that is to be displayed.
+            </param>
+            <returns>
+            The transition used to display the content or <see langword="null"/> if a 
+            transition should not be used.
+            </returns>
+        </member>
+        <member name="M:Transitionals.RandomTransitionSelector.OnTransitionDurationChanged(System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Occurs when the value of the <see cref="P:Transitionals.RandomTransitionSelector.TransitionDuration"/> property has changed.
+            </summary>
+            <param name="e">
+            A <see cref="T:System.Windows.DependencyPropertyChangedEventArgs"/> containing event information.
+            </param>
+        </member>
+        <member name="M:Transitionals.RandomTransitionSelector.OnTransitionAssembliesChanged(System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Occurs when the value of the <see cref="P:Transitionals.RandomTransitionSelector.TransitionAssemblies"/> property has changed.
+            </summary>
+            <param name="e">
+            A <see cref="T:System.Windows.DependencyPropertyChangedEventArgs"/> containing event information.
+            </param>
+        </member>
+        <member name="M:Transitionals.RandomTransitionSelector.OnTransitionsChanged(System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Occurs when the value of the <see cref="P:Transitionals.RandomTransitionSelector.Transitions"/> property has changed.
+            </summary>
+            <param name="e">
+            A <see cref="T:System.Windows.DependencyPropertyChangedEventArgs"/> containing event information.
+            </param>
+        </member>
+        <member name="P:Transitionals.RandomTransitionSelector.TransitionDuration">
+            <summary>
+            Gets or sets a <see cref="T:System.Windows.Duration"/> that all transitions will last. This is a dependency property.
+            </summary>
+            <value>
+            The <see cref="T:System.Windows.Duration"/> that all transitions will last, or <see cref="P:System.Windows.Duration.Automatic"/> 
+            to allow each transition to have it's own unique duration. The default value is 
+            <see cref="P:System.Windows.Duration.Automatic"/>.
+            </value>
+            <remarks>
+            Each transition provides its own default duration even if one isn't specified in markup. 
+            Setting this property to <see cref="P:System.Windows.Duration.Automatic"/> (the default) will honor these 
+            defaults or any durations specified in markup. If a value other than 
+            <see cref="P:System.Windows.Duration.Automatic"/> is supplied, the specified duration will 
+            replace the duration for each <see cref="T:Transitionals.Transition"/> in the <see cref="P:Transitionals.RandomTransitionSelector.Transitions"/> 
+            list as it is used.
+            </remarks>
+        </member>
+        <member name="P:Transitionals.RandomTransitionSelector.TransitionAssemblies">
+            <summary>
+            Gets or sets a list of assembly names that define assemblies containing transitions. 
+            This is a dependency property.
+            </summary>
+            <value>
+            A list of assembly names that define assemblies containing transitions.
+            </value>
+        </member>
+        <member name="P:Transitionals.RandomTransitionSelector.Transitions">
+            <summary>
+            Gets or sets the list of transitions that will be used by the <see cref="T:Transitionals.RandomTransitionSelector"/>. 
+            This is a dependency property.
+            </summary>
+            <value>
+            The list of transitions that will be used by the <see cref="T:Transitionals.RandomTransitionSelector"/>.
+            </value>
+        </member>
+        <member name="T:Transitionals.TraceSwitches">
+            <summary>
+            Provides trace level switches for various components of the framework.
+            </summary>
+        </member>
+        <member name="P:Transitionals.TraceSwitches.Transitions">
+            <summary>
+            Defines a trace switch for the transitions themselves.
+            </summary>
+        </member>
+        <member name="T:Transitionals.NullContentSupport">
+            <summary>
+            Describes how null content is supported.
+            </summary>
+        </member>
+        <member name="F:Transitionals.NullContentSupport.None">
+            <summary>
+            Transitioning to or from null is not supported.
+            </summary>
+        </member>
+        <member name="F:Transitionals.NullContentSupport.Old">
+            <summary>
+            Transitioning from null to non-null is supported.
+            </summary>
+        </member>
+        <member name="F:Transitionals.NullContentSupport.New">
+            <summary>
+            Transitioning from non-null to null is supported.
+            </summary>
+        </member>
+        <member name="F:Transitionals.NullContentSupport.Both">
+            <summary>
+            Transitioning to or from null are both supported.
+            </summary>
+        </member>
+        <member name="T:Transitionals.TransitionConverter">
+            <summary>
+            TypeConverter to convert Transition to/from other types.
+            Currently only <see cref="T:System.String"/> is supported.
+            </summary>
+        </member>
+        <member name="F:Transitionals.TransitionConverter._standardValues">
+            <summary>
+            Cached value for GetStandardValues
+            </summary>
+        </member>
+        <member name="M:Transitionals.TransitionConverter.CanConvertFrom(System.ComponentModel.ITypeDescriptorContext,System.Type)">
+            <summary>
+            TypeConverter method override.
+            </summary>
+            <param name="context">ITypeDescriptorContext</param>
+            <param name="sourceType">Type to convert from</param>
+            <returns>true if conversion is possible</returns>
+        </member>
+        <member name="M:Transitionals.TransitionConverter.CanConvertTo(System.ComponentModel.ITypeDescriptorContext,System.Type)">
+            <summary>
+            TypeConverter method override.
+            </summary>
+            <param name="context">ITypeDescriptorContext</param>
+            <param name="destinationType">Type to convert to</param>
+            <returns>true if conversion is possible</returns>
+        </member>
+        <member name="M:Transitionals.TransitionConverter.ConvertFrom(System.ComponentModel.ITypeDescriptorContext,System.Globalization.CultureInfo,System.Object)">
+            <summary>
+            TypeConverter method implementation.
+            </summary>
+            <param name="context">ITypeDescriptorContext</param>
+            <param name="culture">Current culture (see CLR specs)</param>
+            <param name="value">value to convert from</param>
+            <returns>value that is result of conversion</returns>
+        </member>
+        <member name="T:Transitionals.TransitionSelector">
+            <summary>
+            Allows different transitions to run based on the old and new contents.
+            </summary>
+        </member>
+        <member name="M:Transitionals.TransitionSelector.SelectTransition(System.Object,System.Object)">
+            <summary>
+            When overridden in a derived class, returns a <see cref="T:Transitionals.Transition"/> based on custom logic.
+            </summary>
+            <param name="oldContent">
+            The old content that is currently displayed.
+            </param>
+            <param name="newContent">
+            The new content that is to be displayed.
+            </param>
+            <returns>
+            The transition used to display the content or <see langword="null"/> if a 
+            transition should not be used.
+            </returns>
+        </member>
+        <member name="T:Transitionals.Transitions.CheckerboardTransitionFrameworkElement">
+            <summary>
+                Stores the XAML that defines the CheckerboardTransition
+            </summary>
+            <summary>
+            CheckerboardTransitionFrameworkElement
+            </summary>
+        </member>
+        <member name="M:Transitionals.Transitions.CheckerboardTransitionFrameworkElement.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Transitionals.Transitions.CheckerboardTransition">
+            <summary>
+                Represents the CheckerboardTransition
+            </summary>
+        </member>
+        <member name="T:Transitionals.Transitions.DiagonalWipeTransitionFrameworkElement">
+            <summary>
+                Stores the XAML that defines the DiagonalWipeTransition
+            </summary>
+            <summary>
+            DiagonalWipeTransitionFrameworkElement
+            </summary>
+        </member>
+        <member name="M:Transitionals.Transitions.DiagonalWipeTransitionFrameworkElement.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Transitionals.Transitions.DiagonalWipeTransition">
+            <summary>
+                Represents the DiagonalWipeTransition
+            </summary>
+        </member>
+        <member name="T:Transitionals.Transitions.DiamondsTransitionFrameworkElement">
+            <summary>
+                Stores the XAML that defines the DiamondsTransition
+            </summary>
+            <summary>
+            DiamondsTransitionFrameworkElement
+            </summary>
+        </member>
+        <member name="M:Transitionals.Transitions.DiamondsTransitionFrameworkElement.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Transitionals.Transitions.DiamondsTransition">
+            <summary>
+                Represents the DiamondsTransition
+            </summary>
+        </member>
+        <member name="T:Transitionals.Transitions.DotsTransitionFrameworkElement">
+            <summary>
+                Stores the XAML that defines the DotsTransition
+            </summary>
+            <summary>
+            DotsTransitionFrameworkElement
+            </summary>
+        </member>
+        <member name="M:Transitionals.Transitions.DotsTransitionFrameworkElement.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Transitionals.Transitions.DotsTransition">
+            <summary>
+                Represents the DotsTransition
+            </summary>
+        </member>
+        <member name="T:Transitionals.Transitions.DoubleRotateWipeTransitionFrameworkElement">
+            <summary>
+                Stores the XAML that defines the DoubleRotateWipeTransition
+            </summary>
+            <summary>
+            DoubleRotateWipeTransitionFrameworkElement
+            </summary>
+        </member>
+        <member name="M:Transitionals.Transitions.DoubleRotateWipeTransitionFrameworkElement.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Transitionals.Transitions.DoubleRotateWipeTransition">
+            <summary>
+                Represents the DoubleRotateWipeTransition
+            </summary>
+        </member>
+        <member name="T:Transitionals.Transitions.FadeAndBlurTransitionFrameworkElement">
+            <summary>
+                Stores the XAML that defines the FadeAndBlurTransition
+            </summary>
+            <summary>
+            FadeAndBlurTransitionFrameworkElement
+            </summary>
+        </member>
+        <member name="M:Transitionals.Transitions.FadeAndBlurTransitionFrameworkElement.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Transitionals.Transitions.FadeAndBlurTransition">
+            <summary>
+                Represents the FadeAndBlurTransition
+            </summary>
+        </member>
+        <member name="T:Transitionals.Transitions.FadeAndGrowTransitionFrameworkElement">
+            <summary>
+                Stores the XAML that defines the FadeAndGrowTransition
+            </summary>
+            <summary>
+            FadeAndGrowTransitionFrameworkElement
+            </summary>
+        </member>
+        <member name="M:Transitionals.Transitions.FadeAndGrowTransitionFrameworkElement.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Transitionals.Transitions.FadeAndGrowTransition">
+            <summary>
+                Represents the FadeAndGrowTransition
+            </summary>
+        </member>
+        <member name="T:Transitionals.Transitions.HorizontalBlindsTransitionFrameworkElement">
+            <summary>
+                Stores the XAML that defines the HorizontalBlindsTransition
+            </summary>
+            <summary>
+            HorizontalBlindsTransitionFrameworkElement
+            </summary>
+        </member>
+        <member name="M:Transitionals.Transitions.HorizontalBlindsTransitionFrameworkElement.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Transitionals.Transitions.HorizontalBlindsTransition">
+            <summary>
+                Represents the HorizontalBlindsTransition
+            </summary>
+        </member>
+        <member name="T:Transitionals.Transitions.HorizontalWipeTransitionFrameworkElement">
+            <summary>
+                Stores the XAML that defines the HorizontalWipeTransition
+            </summary>
+            <summary>
+            HorizontalWipeTransitionFrameworkElement
+            </summary>
+        </member>
+        <member name="M:Transitionals.Transitions.HorizontalWipeTransitionFrameworkElement.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Transitionals.Transitions.HorizontalWipeTransition">
+            <summary>
+                Represents the HorizontalWipeTransition
+            </summary>
+        </member>
+        <member name="T:Transitionals.Transitions.MeltTransitionFrameworkElement">
+            <summary>
+                Stores the XAML that defines the MeltTransition
+            </summary>
+            <summary>
+            MeltTransitionFrameworkElement
+            </summary>
+        </member>
+        <member name="M:Transitionals.Transitions.MeltTransitionFrameworkElement.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Transitionals.Transitions.MeltTransition">
+            <summary>
+                Represents the MeltTransition
+            </summary>
+        </member>
+        <member name="T:Transitionals.Transitions.RollTransitionFrameworkElement">
+            <summary>
+                Stores the XAML that defines the RollTransition
+            </summary>
+            <summary>
+            RollTransitionFrameworkElement
+            </summary>
+        </member>
+        <member name="M:Transitionals.Transitions.RollTransitionFrameworkElement.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Transitionals.Transitions.RollTransition">
+            <summary>
+                Represents the RollTransition
+            </summary>
+        </member>
+        <member name="T:Transitionals.Transitions.RotateWipeTransitionFrameworkElement">
+            <summary>
+                Stores the XAML that defines the RotateWipeTransition
+            </summary>
+            <summary>
+            RotateWipeTransitionFrameworkElement
+            </summary>
+        </member>
+        <member name="M:Transitionals.Transitions.RotateWipeTransitionFrameworkElement.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Transitionals.Transitions.RotateWipeTransition">
+            <summary>
+                Represents the RotateWipeTransition
+            </summary>
+        </member>
+        <member name="T:Transitionals.Transitions.StarTransitionFrameworkElement">
+            <summary>
+                Stores the XAML that defines the StarTransition
+            </summary>
+            <summary>
+            StarTransitionFrameworkElement
+            </summary>
+        </member>
+        <member name="M:Transitionals.Transitions.StarTransitionFrameworkElement.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Transitionals.Transitions.StarTransition">
+            <summary>
+                Represents the StarTransition
+            </summary>
+        </member>
+        <member name="T:Transitionals.Transitions.VerticalBlindsTransitionFrameworkElement">
+            <summary>
+                Stores the XAML that defines the VerticalBlindsTransition
+            </summary>
+            <summary>
+            VerticalBlindsTransitionFrameworkElement
+            </summary>
+        </member>
+        <member name="M:Transitionals.Transitions.VerticalBlindsTransitionFrameworkElement.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Transitionals.Transitions.VerticalBlindsTransition">
+            <summary>
+                Represents the VerticalBlindsTransition
+            </summary>
+        </member>
+        <member name="T:Transitionals.Transitions.VerticalWipeTransitionFrameworkElement">
+            <summary>
+                Stores the XAML that defines the VerticalWipeTransition
+            </summary>
+            <summary>
+            VerticalWipeTransitionFrameworkElement
+            </summary>
+        </member>
+        <member name="M:Transitionals.Transitions.VerticalWipeTransitionFrameworkElement.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Transitionals.Transitions.VerticalWipeTransition">
+            <summary>
+                Represents the VerticalWipeTransition
+            </summary>
+        </member>
+    </members>
+</doc>
